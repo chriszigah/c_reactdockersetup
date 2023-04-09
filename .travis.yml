@@ -1,0 +1,18 @@
+sudo: required
+services: -docker
+
+before_install: -docker build -t manchristiano/fibcalc-test -f ./client/Dockerfile.dev ./client
+
+scripts: -docker run manchristiano/fibcalc-test npm test -- --coverage
+
+after_success:
+  - docker build -t manchristiano/fibcalc-client ./client
+  - docker build -t manchristiano/fibcalc-nginx ./nginx
+  - docker build -t manchristiano/fibcalc-server ./server
+  - docker build -t manchristiano/fibcalc-worker ./worker
+  # Log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID --password-stdin
+  - docker push manchristiano/fibcalc-client
+  - docker push manchristiano/fibcalc-nginx
+  - docker push manchristiano/fibcalc-server
+  - docker push manchristiano/fibcalc-worker
