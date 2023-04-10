@@ -1,12 +1,12 @@
-apiVerstion:v1
+apiVersion: v1
 kind: Pod
 metadata:
-  name:client-pod
+  name: client-pod
   labels:
-    component:web
+    component: web
 spec:
   containers:
-    -name:client
-     image: complex_client
-     ports:
-      - containersPort:3000
+    - name: client
+      image: manchristiano/visits
+      ports:
+        - containerPort: 3000 
