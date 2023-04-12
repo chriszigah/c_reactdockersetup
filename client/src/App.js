@@ -1,6 +1,6 @@
-import logo from './logo.svg';
-import './App.css';
-import { Link} from 'react-router-dom';
+import logo from "./logo.svg";
+import "./App.css";
+import { Link } from "react-router-dom";
 
 function App() {
   return (
@@ -8,11 +8,10 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <div>
-          <Link to="/fib">Fib Calculator</Link> 
-          <br/>
+          <Link to="/fib">Fib Calculator 7</Link>
+          <br />
           <Link to="/otherpage">Other Page</Link>
         </div>
-    
       </header>
     </div>
   );
